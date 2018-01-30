@@ -3,7 +3,11 @@ function remove(array, param) {
   array.splice(index, 1);
 }
 
+function isExist(array, param) {
+  return array.indexOf(param) !== -1;
+}
+
 module.exports = function(array, param) {
-  array.indexOf(param) === -1 ? array.push(param) : remove(array, param);
+  isExist(array, param) ? remove(array, param) : array.push(param);
   return array;
 };
