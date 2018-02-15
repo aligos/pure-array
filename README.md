@@ -3,7 +3,7 @@
 
 
 ```
-const Pure = require('pure-array');
+const { Pure } = require('pure-array');
 
 const yourArray = [1, 2, 3];
 
