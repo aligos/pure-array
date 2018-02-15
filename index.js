@@ -7,7 +7,14 @@ function isExist(array, param) {
   return array.indexOf(param) !== -1;
 }
 
-module.exports = function(array, param) {
-  isExist(array, param) ? remove(array, param) : array.push(param);
-  return array;
+module.exports = {
+  PureAll: function(array, inputArray) {
+    let newArray = array.length === 0 ? array.concat(inputArray) : [];
+    return newArray;
+  },
+
+  Pure: function(array, param) {
+    isExist(array, param) ? remove(array, param) : array.push(param);
+    return array;
+  }
 };
