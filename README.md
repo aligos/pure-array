@@ -1,7 +1,7 @@
 # pure-array
 ### usage
 
-
+### Work for array object
 ```
 const { Pure } = require('pure-array');
 

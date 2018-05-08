@@ -7,6 +7,17 @@ function isExist(array, param) {
   return array.indexOf(param) !== -1;
 }
 
+function includes(array, obj) {
+  var i;
+  for (i = 0; i < array.length; i++) {
+    if (array[i] === obj) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 module.exports = {
   PureAll: function(array, inputArray) {
     let newArray = array.length === 0 ? array.concat(inputArray) : [];
@@ -14,7 +25,11 @@ module.exports = {
   },
 
   Pure: function(array, param) {
-    isExist(array, param) ? remove(array, param) : array.push(param);
+    if (typeof param === "object") {
+      includes(array, param) ? remove(array, param) : array.push(param);
+    } else {
+      isExist(array, param) ? remove(array, param) : array.push(param);
+    }
     return array;
   }
 };
